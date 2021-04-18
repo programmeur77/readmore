@@ -11,23 +11,27 @@ $(document).ready(function(){
 
 	if ($result === true) {
 		$showMore.css('display', 'block');
-		$showLess.css('display', 'none');
+		//$showLess.css('display', 'none'); 
 		$showMore.click(function(e){
 			$messageContainer.css({
 				transition: 'height 1s',
 				height: $paragraphHeight + 'px'
 			})
-			$showMore.css('display', 'none');
-			$showLess.css('display', 'block');
-			$showLess.click(function(e){
-				console.log('OK');
-				$messageContainer.css({
-					transition: 'height 0.2s',
-					height: $messageContainerHeight + 'px'
+
+			$showMore.prop('id', 'show-less');
+			$showMore.html('En voir moins');
+
+			if ($showMore.attr('id') === 'show-less') {
+				$showMore.click(function(e) {
+					$messageContainer.css({
+						transition: 'height 1s',
+						height: $messageContainerHeight + 'px'
+					})
+					$showMore.prop('id', 'show-more');
+					console.log($showMore.attr('id'));
+					$showMore.html('En lire plus');
 				})
-				$showLess.css('display', 'none');
-				$showMore.css('display', 'block');
-			})
+			}
 		})
 	} else {
 		$showMore.css('display', 'none');
