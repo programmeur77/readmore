@@ -9,34 +9,20 @@ $(document).ready(function(){
 
 	var $result = calculateHeight($paragraphHeight, $messageContainerHeight);
 
+	console.log($newContainerHeight);
+
 	if ($result === true) {
 		$showMore.css('display', 'block');
 		
-		if ($showMore.attr('id') === 'show-more') {
-			$showMore.click(function(e) {
-				$messageContainer.css({
-					transition: 'height 1s',
-					height: $paragraphHeight + 'px'
-				})
-				$showMore.html('En voir moins');
+		$showMore.click(function() {
+			console.log('1');
+			$showMore.html('En voir moins');
+			console.log('2')
+			$messageContainer.css({
+				transition: 'height 1s',
+				height: $paragraphHeight + 'px'
 			})
-		} 
-
-			$showMore.prop('id', 'show-less');
-
-			console.log('OK');
-
-		/*if ($showMore.attr('id') === 'show-less') {
-			$showMore.click(function(e) {
-				$messageContainer.css({
-					transition: 'height 1s',
-					height: $messageContainerHeight + 'px'
-				})
-				$showMore.html('En lire plus');
-			})
-		} */
-
-		// $showMore.prop('id', 'show-more');
+		})
 
 	} else {
 		$showMore.css('display', 'none');
