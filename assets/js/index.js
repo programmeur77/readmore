@@ -11,28 +11,33 @@ $(document).ready(function(){
 
 	if ($result === true) {
 		$showMore.css('display', 'block');
-		//$showLess.css('display', 'none'); 
-		$showMore.click(function(e){
-			$messageContainer.css({
-				transition: 'height 1s',
-				height: $paragraphHeight + 'px'
+		
+		if ($showMore.attr('id') === 'show-more') {
+			$showMore.click(function(e) {
+				$messageContainer.css({
+					transition: 'height 1s',
+					height: $paragraphHeight + 'px'
+				})
+				$showMore.html('En voir moins');
 			})
+		} 
 
 			$showMore.prop('id', 'show-less');
-			$showMore.html('En voir moins');
 
-			if ($showMore.attr('id') === 'show-less') {
-				$showMore.click(function(e) {
-					$messageContainer.css({
-						transition: 'height 1s',
-						height: $messageContainerHeight + 'px'
-					})
-					$showMore.prop('id', 'show-more');
-					console.log($showMore.attr('id'));
-					$showMore.html('En lire plus');
+			console.log('OK');
+
+		/*if ($showMore.attr('id') === 'show-less') {
+			$showMore.click(function(e) {
+				$messageContainer.css({
+					transition: 'height 1s',
+					height: $messageContainerHeight + 'px'
 				})
-			}
-		})
+				$showMore.html('En lire plus');
+			})
+		} */
+
+		// $showMore.prop('id', 'show-more');
+
 	} else {
 		$showMore.css('display', 'none');
 	}
