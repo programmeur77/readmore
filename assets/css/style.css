@@ -1,0 +1,13 @@
+#message-content {
+	width: 250px;
+	height: 300px;
+	overflow: hidden;
+	border: 1px solid;
+	position: absolute;
+	/*transition: height 1s;*/
+}
+
+#show-more, #show-less {
+	cursor: pointer;
+	position: relative;
+}
